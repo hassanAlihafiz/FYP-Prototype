@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Csv File</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/6bbddf6fcc.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navigation">
+        <div class="container">
+            <a class="navbar-brand logo-font" href="index.html">Sales Prediction</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html"">Home</a>
+                        <span class=" sr-only">(current)</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Upload.html">Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="landing-heading">
+            <h1>Sales Prediction</h1>
+        </div>
+        <img class="divider-line" src="/css/images/divider.png">
+    </div>
+
+    <div class="container">
+        <div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                    <h3>Sales Prediction Form</h3>
+                    <div>
+                        <form id="Member" class="px-2 py-1 form">
+                            <div class="form-group">
+                                <label for="email">Item Name</label>
+                                <input type="text" class="form-control" id="email" placeholder="Item Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Price</label>
+                                <input type="number" class="form-control" id="password" placeholder="Price">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Quantity</label>
+                                <input type="number" class="form-control" id="password" placeholder="Quantity">
+                            </div>
+                            <br>
+                            <input type="submit" class="btn btn-warning" value="Predict">
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <canvas id="chart" width="500" height="250">
+
+                    </canvas>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="adminpopup">
+            <form class="form" id="adminlogin">
+                <p class="deleteMeetingClose">&times;</p>
+                <h3 class="fancy-font popup-heading">Upload File</h3>
+                <br>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="file" class="form-control" id="adminemail">
+                </div>
+                <!-- <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="pass" placeholder="••••••••••">
+            </div> -->
+                <br>
+                <div class="popup-buttons">
+                    <input type="submit" id="btnsubmit" class="btn btn-warning" value="Upload File">
+                    <input type="button" class="btn btn-warning cancel" id="cancel" value="Cancel">
+                </div>
+                <br>
+            </form>
+        </div>
+
+
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            readyFunction();
+        }, 5000);
+    })
+
+
+    function readyFunction() {
+        $("#adminpopup").ready(function () {
+            //  alert("Admin");
+            showpopup();
+        });
+
+        $("#cancel, .deleteMeetingClose").click(function () {
+            hidepopup();
+        });
+    }
+
+
+
+    function showpopup() {
+        $("#adminpopup").fadeIn(500);
+        $("#adminpopup").css({
+            "visibility": "visible",
+            "display": "block"
+        });
+        $(".cover").fadeTo(500, 0.5).css('display', 'block');
+    }
+
+    function hidepopup() {
+        $(".cover").clearQueue();
+        $("#adminpopup").fadeOut(500);
+        $("#adminpopup").css({
+            "visibility": "hidden",
+            "display": "none"
+        });
+        $(".cover").fadeOut(500);
+    }
+
+    const xlabel = []
+    const ylabel = []
+    getData();
+    chart();
+    async function chart() {
+        await getData();
+        const ctx = document.getElementById('chart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: xlabel,
+                datasets: [{
+                    label: 'Sales Data',
+                    data: ylabel,
+
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+    }
+    //
+    async function getData() {
+        const response = await fetch('sales_data_sample.csv')
+        const data = await response.text();
+        console.log(data)
+
+        const rows = data.split('\n');
+        rows.forEach(elt => {
+            const row = elt.split(',')
+            const sales = row[4]
+            ylabel.push(sales)
+            const date = row[10]
+            xlabel.push(date)
+            console.log(sales, date)
+        });
+
+
+    }
+
+
+
+    $(document).bind("contextmenu", function (e) {
+        return false;
+    });
+</script>

@@ -1,0 +1,301 @@
+/* GLOBAL */
+
+body {
+	font-family: 'Work Sans', sans-serif;
+}
+a {
+	color: white;
+}
+
+/*NAVIGATION*/
+
+.nav-link {
+	margin-right: 30px;
+	font-size: 20px;
+}
+
+/* LOGIN DROPDOWN*/
+
+.dropdown-menu {
+	margin-right: 100px;
+	color: black;
+}
+.login-button {
+	padding: 10px;
+	margin-left: 20px;
+	font-size: 18px;
+}
+.logo-font {
+	font-family: 'Pacifico', cursive;
+	color: white;
+	font-size: 30px;
+}
+
+.divider-line {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	max-width: 100%;
+}
+
+/*INDEX AND CAROUSEL*/
+
+.carousel-control-prev {
+	background-color: black;
+	height: 50px;
+	width: 50px;
+	margin: auto;
+	border-radius: 6px;
+}
+
+.carousel-control-next {
+	background-color: black;
+	height: 50px;
+	width: 50px;
+	margin: auto;
+	border-radius: 6px;
+}
+
+.landing-heading {
+	margin-top: 120px;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.fancy-font {
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	color: black;
+	font-style: normal;
+	margin-top: 50px;
+	text-shadow: none;
+}
+
+h4.fancy-font {
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.index-card a {
+	margin-top: 50px;
+	
+}
+
+/* REGISTRATION */
+
+.register-form {
+	align-content: center;
+	margin: 20px;
+	margin-top: 100px;
+	text-align: center;
+	padding: 10px;
+	padding-top: 20px;
+}
+
+.register {
+	border: solid 2 px;
+	width: 40%;
+	font-size: 20px;
+}
+
+/*CAUSES*/
+
+.causes {
+	align-content: center;
+	text-align: center;
+	margin: 20px;
+	margin-top: 100px;
+}
+
+.card {
+	width: 350px;
+	margin: auto;
+	height: 250px;
+}
+
+
+#flip {
+  text-align: center;
+  border: solid 1px #c3c3c3;
+  height: 170px;
+  text-align: center
+  
+}
+
+#panel {
+  padding: 5px;
+  text-align: center;
+  border: solid 1px #c3c3c3;
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+.causes-cards {
+	width: 100%;
+}
+
+h4, p.causes-cards {
+	display: inline-block;
+
+}
+#site-search {
+	height: 35px;
+	padding: none;
+	border: 1px solid;
+	border-radius: 4px;
+
+	
+}
+.search-button {
+	float: right;
+	display: inline;
+	margin-left: 5px;
+}
+.search {
+	float:right;
+	margin-bottom: 10px;
+	display: inline;
+}
+.list-group{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+}
+
+/* POPUPS */
+#loginpopup {
+	display: none;
+	height: 490px;
+	width: 320px;
+	background-color: white;
+	border: solid 3px #ffc107;
+	border-radius: 40px;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	z-index: 2000;
+	
+	
+}
+
+#adminpopup {
+	display: none;
+	height: 490px;
+	width: 320px;
+	background-color: white;
+	border: solid 3px #ffc107;
+	border-radius: 40px;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	z-index: 2000;
+	
+	
+}
+.register-popup {
+	color: black;
+}
+
+.admin-popup {
+	color: black;
+}
+
+.deleteMeetingClose {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+	color: #ffc107;
+	font-size: 35px;
+	
+}
+
+.cover 
+    {
+        background-color:black;
+        width:100%;
+        height:100%;
+      	display:none;
+        position:fixed;
+    	z-index:1000;
+		top: 0;
+		margin: none;
+ 
+    }
+/* MEMBER VIEW */
+
+.fa-user{
+	font-size: 25px;
+	color: #ffc107;
+}
+
+.account-button {
+	color: #ffc107;
+}
+.dropdown-md {
+	color: #ffc107;
+}
+
+.account-heading {
+	margin-top: 100px;
+}
+
+/* SHARE ICONS */
+
+p.social a {
+	margin: 0 10px 10px 0; 
+	width: 50px; 
+	height: 50px; 
+	border-radius: 1.5em; 
+	vertical-align: middle; 
+	text-align: center; 
+	border: solid 1px #ccc; 
+	transition: all 0.2s ease-out; 
+	float: right;
+	position: relative;
+}
+
+p.social a i {
+	vertical-align: middle;
+	padding: none;
+	font-size: 20px;
+	padding-bottom: 5px;
+}
+p.social a i:before {
+	line-height: 2.5em;
+}
+
+p.social-colour a {
+	color: #fff;
+}
+
+p.social-colour a.facebook, p.social-colour a.facebook:hover, p.social-colour a.facebook:focus {
+	background-color: #4460ae; 
+	border-color: #4460ae;
+}
+
+p.social-colour a.twitter, p.social-colour a.twitter:hover, p.social-colour a.twitter:focus {
+	background-color: #3cf; 
+	border-color: #3cf;
+}
+
+p.social-colour a.linkedin, p.social-colour a.linkedin:hover, p.social-colour a.linkedin:focus {
+	background-color: #0373b4; 
+	border-color: #0373b4;}
+.create-h1 {
+	margin-top: 100px;
+	text-align: center;
+}
+
+.cause-text{
+	height: 200px;
+}
+
+

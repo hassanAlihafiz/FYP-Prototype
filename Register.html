@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css//styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://bootswatch.com/yeti/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navigation">
+        <div class="container">
+            <a class="navbar-brand logo-font" href="index.html">Sales Prediction</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html"">Home</a>
+                        <span class=" sr-only">(current)</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown-md">
+                        <button class="dropdown-toggle btn btn-warning login-button" role="button"
+                            data-toggle="dropdown">Login</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <form id="Member" action="Seller/Home.html" class="px-2 py-1 form">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="email@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">Remember me</label>
+                                </div>
+                                <br>
+                                <input type="submit" class="btn btn-warning" value="Log In">
+
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Register.html">Register</a>
+                            <a class="dropdown-item admin-login-button" href="#">Admin Login</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="register-form">
+        <h1 class="register-h1">Create a new account:</h1>
+        <br>
+        <form class="container register" name="registration" onsubmit="return validateForm()">
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name Surname">
+
+                    <label for="email1">Email</label>
+                    <input type="email" class="form-control" name="email1" id="email1" placeholder="email@email.com">
+
+                    <label for="password1">Password</label>
+                    <input type="password" class="form-control" name="password1" id="password1" placeholder="Password">
+
+                    <label for="password2">Repeat password</label>
+                    <input type="password" class="form-control" name="password2" id="password2" placeholder="Password">
+
+
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St">
+
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" id="city" placeholder="Edinburgh">
+                    <label for="postcode">Zip</label>
+                    <input type="text" class="form-control" name="postcode" id="postcode" placeholder="EH11111">
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-warning" onclick="CALL()" value="Create">
+        </form>
+    </div>
+    <div class="cover"></div>
+
+    <div id="loginpopup">
+        <form class="form" action="#" id="login">
+            <p class="deleteMeetingClose">&times;</p>
+            <h3 class="fancy-font popup-heading">Admin Login</h3>
+            <br>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="email@email.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="••••••••••">
+            </div>
+            <br>
+            <div class="popup-buttons">
+                <a href="admin.html" type="submit" class="btn btn-warning">Sign in</a>
+                <input type="button" class="btn btn-warning cancel" id="cancel" value="Cancel">
+            </div>
+            <br>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $(".admin-login-button").click(function () {
+            showpopup();
+        });
+        $("#cancel, .deleteMeetingClose").click(function () {
+            hidepopup();
+        });
+    });
+
+    function showpopup() {
+        $("#loginpopup").fadeIn(500);
+        $("#loginpopup").css({
+            "visibility": "visible",
+            "display": "block"
+        });
+        $(".cover").fadeTo(500, 0.5).css('display', 'block');
+    }
+
+    function hidepopup() {
+        $("#loginpopup").fadeOut(500);
+        $("#loginpopup").css({
+            "visibility": "hidden",
+            "display": "none"
+        });
+        $(".cover").fadeOut(500);
+    }
+
+    /* function validateForm() {
+         var x = document.forms["registration"]["name", "email1", "password1", "password2", "address", "city",
+             "postcode"
+         ].value;
+         if (x == "") {
+             alert("All fields must be filled out");
+             return false;
+         }
+         //    CALL();
+     }*/
+
+    function CALL() {
+        window.location.replace('RegisterSuccess.html');
+    }
+
+    $(document).bind("contextmenu", function (e) {
+        return false;
+    });
+</script>
